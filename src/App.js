@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { DappContextProvider } from "./context/DappContext"
+import { FaucetContextProvider } from "./context/FaucetContext"
+import { TokenContextProvider } from "./context/TokenContext"
+import Dapp from "./Dapp"
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <TokenContextProvider>
+      <FaucetContextProvider>
+        <DappContextProvider>
+          <Dapp />
+        </DappContextProvider>
+      </FaucetContextProvider>
+    </TokenContextProvider>
+  )
 }
 
-export default App;
+export default App
