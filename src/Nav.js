@@ -19,6 +19,7 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons"
 import { useColorMode } from "@chakra-ui/color-mode"
 import { useWeb3 } from "web3-hooks"
 import { useDappContext } from "./hook/useDappContext"
+import { Fragment } from "react"
 
 const Nav = () => {
   const [web3State, login] = useWeb3()
@@ -49,45 +50,47 @@ const Nav = () => {
       </Modal>
 
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-        {web3State.isLogged ? (
-          <HStack as={"nav"} spacing={4}>
-            <Link
-              style={{ fontWeight: "bold" }}
-              href={"/"}
-              aria-label={"Home page"}
-              px={2}
-              py={1}
-              rounded={"md"}
-              _hover={hoverNavFoot}
-            >
-              Home
-            </Link>
-            <Link
-              style={{ fontWeight: "bold" }}
-              href={"/Token"}
-              aria-label={"Token page"}
-              px={2}
-              py={1}
-              rounded={"md"}
-              _hover={hoverNavFoot}
-            >
-              Token
-            </Link>
-            <Link
-              style={{ fontWeight: "bold" }}
-              href={"/Faucet"}
-              aria-label={"Faucet page"}
-              px={2}
-              py={1}
-              rounded={"md"}
-              _hover={hoverNavFoot}
-            >
-              Faucet
-            </Link>
-          </HStack>
-        ) : (
-          <Spacer />
-        )}
+        <HStack as={"nav"} spacing={4}>
+          <Link
+            style={{ fontWeight: "bold" }}
+            href={"/"}
+            aria-label={"Home page"}
+            px={2}
+            py={1}
+            rounded={"md"}
+            _hover={hoverNavFoot}
+          >
+            Home
+          </Link>
+          {web3State.isLogged && web3State.chainId === 42 ? (
+            <Fragment>
+              <Link
+                style={{ fontWeight: "bold" }}
+                href={"/wallet"}
+                aria-label={"wallet page"}
+                px={2}
+                py={1}
+                rounded={"md"}
+                _hover={hoverNavFoot}
+              >
+                Wallet
+              </Link>
+              <Link
+                style={{ fontWeight: "bold" }}
+                href={"/faucet"}
+                aria-label={"faucet page"}
+                px={2}
+                py={1}
+                rounded={"md"}
+                _hover={hoverNavFoot}
+              >
+                Faucet
+              </Link>
+            </Fragment>
+          ) : (
+            <Spacer />
+          )}
+        </HStack>
         <HStack spacing={4}>
           <Button
             colorScheme={colorScheme}

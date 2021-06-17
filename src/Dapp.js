@@ -6,7 +6,7 @@ import Footer from "./Footer"
 import Home from "./Home"
 import { useDappContext } from "./hook/useDappContext"
 import Nav from "./Nav"
-import Token from "./Token"
+import Wallet from "./Wallet"
 
 const Dapp = () => {
   const { bgContent } = useDappContext()
@@ -14,23 +14,19 @@ const Dapp = () => {
   return (
     <Router>
       <Nav />
-      <Switch>
-        <Route exact path="/">
-          <Box bg={bgContent} minH={"100vh"}>
+      <Box bg={bgContent} minH={"100vh"}>
+        <Switch>
+          <Route exact path="/">
             <Home />
-          </Box>
-        </Route>
-        <Route exact path="/Token">
-          <Box bg={bgContent} minH={"100vh"}>
-            <Token />
-          </Box>
-        </Route>
-        <Route exact path="/Faucet">
-          <Box bg={bgContent} minH={"100vh"}>
+          </Route>
+          <Route exact path="/wallet">
+            <Wallet />
+          </Route>
+          <Route exact path="/faucet">
             <Faucet />
-          </Box>
-        </Route>
-      </Switch>
+          </Route>
+        </Switch>
+      </Box>
       <Footer />
     </Router>
   )

@@ -6,5 +6,5 @@ export const TokenContext = createContext()
 
 export const TokenContextProvider = ({ children }) => {
   const token = useContract(tokenAddress, tokenABI)
-  return <TokenContext.Provider value={token}>{children}</TokenContext.Provider>
+  return <TokenContext.Provider value={{token}}>{children}</TokenContext.Provider>
 }

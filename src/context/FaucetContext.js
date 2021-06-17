@@ -7,6 +7,8 @@ export const FaucetContext = createContext()
 export const FaucetContextProvider = ({ children }) => {
   const faucet = useContract(faucetAddress, faucetABI)
   return (
-    <FaucetContext.Provider value={faucet}>{children}</FaucetContext.Provider>
+    <FaucetContext.Provider value={{ faucet }}>
+      {children}
+    </FaucetContext.Provider>
   )
 }
