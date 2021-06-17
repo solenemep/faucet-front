@@ -2,7 +2,7 @@ import { Alert, AlertIcon, Flex, Heading, Text, VStack } from "@chakra-ui/react"
 import { useWeb3 } from "web3-hooks"
 
 const Home = () => {
-  const [web3State, login] = useWeb3()
+  const [web3State] = useWeb3()
 
   return (
     <Flex

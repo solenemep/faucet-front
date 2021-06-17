@@ -22,7 +22,7 @@ import { useEffect, useState } from "react"
 import { Fragment } from "react"
 
 const Wallet = () => {
-  const [web3State, login] = useWeb3()
+  const [web3State] = useWeb3()
   const { token } = useTokenContext()
   const { bgNavFoot, hoverNavFoot, colorScheme, bgContent } = useDappContext()
   const toast = useToast()

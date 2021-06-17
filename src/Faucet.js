@@ -13,7 +13,7 @@ import { useDappContext } from "./hook/useDappContext"
 import { useFaucetContext } from "./hook/useFaucetContext"
 
 const Faucet = () => {
-  const [web3State, login] = useWeb3()
+  const [web3State] = useWeb3()
   const { hoverNavFoot, colorScheme, bgNavFoot } = useDappContext()
   const { faucet } = useFaucetContext()
   const toast = useToast()
