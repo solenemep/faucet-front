@@ -99,7 +99,7 @@ const Nav = () => {
             mx={4}
             size={"md"}
             type="button"
-            aria-label="Dark Mode"
+            aria-label="Log"
             onClick={web3State.isLogged ? onOpen : login}
             _hover={hoverNavFoot}
           >
