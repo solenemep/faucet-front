@@ -108,7 +108,7 @@ const Faucet = () => {
         <VStack my={8}>
           <Link
             style={{ fontWeight: "bold" }}
-            to="/"
+            href="/"
             aria-label={"Faucet page"}
             px={4}
             py={2}
